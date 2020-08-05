@@ -1,1 +1,1 @@
-# dynamobdb-geo
+# dynamodb-geo
