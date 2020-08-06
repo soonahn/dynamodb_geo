@@ -1,4 +1,5 @@
 ext/geohash_wrapper/*.o
 ext/geohash_wrapper/*.so
+ext/geohash_wrapper/mkmf.log
 *.bundle
 *.o
