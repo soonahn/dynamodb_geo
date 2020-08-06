@@ -4,6 +4,7 @@ ext/geohash_wrapper/mkmf.log
 lib/geohash_wrapper/*.so
 *.bundle
 *.o
+*.gem
 .byebug_history
 .ruby-version
 .ruby-gemset
