@@ -49,7 +49,7 @@ Get width and height about a specific precision
     Input:  precision => Number
     Output: Dimension => Object
 
-    Geohash.dimensions_for_precision(precision) => Hash
+    Geohash.dimensions(precision) => Dimension
 
 #### Geocoord(Object) => attr_accessor: :latitude, :longitude, :north, :south, :east, :west, :dimension
 #### Dimension(Object) => attr_accessor: :length, :width
