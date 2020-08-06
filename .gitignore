@@ -5,3 +5,5 @@ lib/geohash_wrapper/*.so
 *.bundle
 *.o
 .byebug_history
+.ruby-version
+.ruby-gemset
