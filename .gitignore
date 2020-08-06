@@ -1,2 +1,4 @@
+ext/geohash_wrapper/*.o
+ext/geohash_wrapper/*.so
 *.bundle
 *.o
