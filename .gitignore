@@ -4,3 +4,4 @@ ext/geohash_wrapper/mkmf.log
 lib/geohash_wrapper/*.so
 *.bundle
 *.o
+.byebug_history
