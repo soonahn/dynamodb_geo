@@ -1,4 +1,4 @@
-# DynamoDB-Geo
+# DynamoDB_Geo
 
 
 # Geohashing
