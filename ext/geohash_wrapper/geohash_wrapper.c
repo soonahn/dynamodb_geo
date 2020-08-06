@@ -13,14 +13,12 @@ VALUE wrap_geohash_dimensions_for_precision(VALUE self, VALUE precision);
 void Init_geohash_wrapper()
 {
   VALUE Geohash;
-  VALUE Wrapper;
-  Geohash = rb_define_module("Geohash");
-  Wrapper = rb_define_class_under(Geohash, "Wrapper", rb_cObject);
+  Geohash = rb_define_class("Geohash", rb_cObject);
 
-  rb_define_singleton_method(Wrapper, "geohash_encode",                   wrap_geohash_encode, 3);
-  rb_define_singleton_method(Wrapper, "geohash_decode",                   wrap_geohash_decode, 1);
-  rb_define_singleton_method(Wrapper, "geohash_neighbours",               wrap_geohash_neighbors, 1);
-  rb_define_singleton_method(Wrapper, "geohash_dimensions_for_precision", wrap_geohash_dimensions_for_precision, 1);
+  rb_define_singleton_method(Geohash, "encode",                   wrap_geohash_encode, 3);
+  rb_define_singleton_method(Geohash, "wrap_decode",              wrap_geohash_decode, 1);
+  rb_define_singleton_method(Geohash, "neighbours",               wrap_geohash_neighbors, 1);
+  rb_define_singleton_method(Geohash, "dimensions_for_precision", wrap_geohash_dimensions_for_precision, 1);
 }
 
 VALUE wrap_geohash_encode(VALUE self, VALUE lat, VALUE lng, VALUE precision) {

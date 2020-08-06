@@ -2,6 +2,6 @@ require 'spec_helper'
 
 describe Geohash do
   it 'does it' do
-    debugger;1
+    Geohash.decode('s01')
   end
 end
