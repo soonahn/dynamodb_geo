@@ -4,7 +4,7 @@ require 'byebug'
 class Geohash
   class << self
     def decode(hash)
-      Geocoord.new(wrap_decode(hash))
+      Geocoord.new(wrap_decode(hash)).freeze
     end
   end
 end
