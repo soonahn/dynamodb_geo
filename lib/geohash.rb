@@ -6,6 +6,10 @@ class Geohash
     def decode(hash)
       Geocoord.new(wrap_decode(hash)).freeze
     end
+
+    def dimensions(precision)
+      Dimension.new(dimensions_for_precision(precision)).freeze
+    end
   end
 end
 
