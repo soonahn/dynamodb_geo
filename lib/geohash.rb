@@ -1,5 +1,4 @@
 require 'geohash/geohash_wrapper'
-require 'byebug'
 
 class Geohash
   class << self
