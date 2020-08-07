@@ -1,9 +1,8 @@
-$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 require 'dynamodb_geo/version'
 
 Gem::Specification.new do |s|
   s.name             = 'dynamodb_geo'
-  s.version          = '0.0.2'
+  s.version          = "#{DynamodbGeo::Version::STRING}"
   s.date             = '2020-08-04'
   s.description      = 'A port of dynamodb_geo to Ruby. Includes a geohash module.'
   s.summary          = "dynamodb_geo-#{DynamodbGeo::Version::STRING}"

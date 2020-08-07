@@ -6,7 +6,8 @@
 void Init_geohash_wrapper();
 VALUE wrap_geohash_encode(VALUE self, VALUE lat, VALUE lng, VALUE precision);
 VALUE wrap_geohash_decode(VALUE self, VALUE hash);
-VALUE wrap_geohash_neighbors(VALUE self, VALUE hash);
+VALUE wrap_geohash_neighbours(VALUE self, VALUE hash);
+VALUE wrap_geohash_neighbour(VALUE self, VALUE hash, VALUE direction);
 VALUE wrap_geohash_dimensions_for_precision(VALUE self, VALUE precision);
 
 
@@ -17,7 +18,8 @@ void Init_geohash_wrapper()
 
   rb_define_singleton_method(Geohash, "encode",                   wrap_geohash_encode, 3);
   rb_define_singleton_method(Geohash, "wrap_decode",              wrap_geohash_decode, 1);
-  rb_define_singleton_method(Geohash, "neighbours",               wrap_geohash_neighbors, 1);
+  rb_define_singleton_method(Geohash, "neighbours",               wrap_geohash_neighbours, 1);
+  rb_define_singleton_method(Geohash, "neighbour",                wrap_geohash_neighbour, 2);
   rb_define_singleton_method(Geohash, "dimensions_for_precision", wrap_geohash_dimensions_for_precision, 1);
 }
 
@@ -46,7 +48,7 @@ VALUE wrap_geohash_decode(VALUE self, VALUE hash) {
   return r_hash;
 }
 
-VALUE wrap_geohash_neighbors(VALUE self, VALUE hash) {
+VALUE wrap_geohash_neighbours(VALUE self, VALUE hash) {
   char** hashed_neighbours = geohash_neighbors(StringValueCStr(hash));
   VALUE neighbours = rb_ary_new2(8);
   int i;
@@ -55,6 +57,10 @@ VALUE wrap_geohash_neighbors(VALUE self, VALUE hash) {
     rb_ary_store(neighbours, i, rb_str_new_cstr(hashed_neighbours[i]));
   }
   return neighbours;
+}
+
+VALUE wrap_geohash_neighbour(VALUE self, VALUE hash, VALUE direction) {
+  return rb_str_new_cstr(get_neighbor(StringValueCStr(hash), NUM2INT(direction)));
 }
 
 VALUE wrap_geohash_dimensions_for_precision(VALUE self, VALUE precision) {

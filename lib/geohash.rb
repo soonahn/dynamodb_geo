@@ -26,10 +26,10 @@ class Geocoord
 end
 
 class Dimension
-  attr_accessor :length, :width
+  attr_accessor :height, :width
 
   def initialize(geobox)
-    length = geobox['length']
-    width  = geobox['width']
+    @height = geobox['height']
+    @width  = geobox['width']
   end
 end

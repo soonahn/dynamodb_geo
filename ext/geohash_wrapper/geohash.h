@@ -71,6 +71,8 @@ extern GeoCoord geohash_decode(char* hash);
  */ 
 extern char** geohash_neighbors(char* hash);
 
+// sorry I added this, this was not in the original header
+extern char* get_neighbor(char *hash, int direction);
 /*
  * Returns the width and height of a precision value.
  */
