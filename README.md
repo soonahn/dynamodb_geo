@@ -2,10 +2,12 @@
 ## DynamoDB
 This is an attempt at storing and querying geohash data in DynamoDB.
 
-We store objects in DynamoDB, when we query, we look for a customizable number of stored items by zooming out exactly one level.  Returned in an attempt at the closest items first.
+We store objects in DynamoDB, when we query, we look for a customizable number of stored items by zooming out exactly one level.  
+We return the objects in an attempt at the closest items first.
 
 Items are searched as the following.
-Given the lat, long we calculate a hash 9x0qz.  We go up one level to 9x0q and calculate all neighbouring hashes.
+
+Given the lat, long we calculate a hash - assume 9x0qz.  We go up one level to 9x0q and calculate all neighbouring hashes.
 
     9x0p 9x0r 9x0x
     9x0n 9x0q 9x0w     => ["9x0q", "9x0r", "9x0x", "9x0w", "9x0t", "9x0m", "9x0j", "9x0n", "9x0p"]
