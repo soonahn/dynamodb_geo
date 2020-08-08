@@ -10,6 +10,9 @@ describe DynamodbGeo do
         profile_name: 'test'
       )
       expect(dynamo).to be_a DynamodbManager
+
+      debugger;1
+      puts 'foo'
     end
   end
 end

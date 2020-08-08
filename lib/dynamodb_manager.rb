@@ -3,7 +3,7 @@ require 'geohash'
 require 'store'
 
 class DynamodbManager
-  attr_accessor :client, :table_name, :hash_key_name, :hash_key_name, :geohash_name, :geojson_name, :geohash_index_name, :hash_key_length, :max_item_return
+  attr_accessor :client, :table_name, :hash_key, :range_key, :geohash_key, :geojson, :geohash_index, :hash_key_length, :local_area_size, :max_item_return
   def initialize(region:, table_name:, access_key_id: nil, secret_access_key: nil, profile_name: 'default')
     if access_key_id.nil? && secret_access_key.nil?
       access_key_id = ENV['AWS_ACCESS_KEY_ID']
