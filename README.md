@@ -58,8 +58,15 @@ Sets the max number of items to return
 **Methods**  
 Initialization
 
-    Description: Shows the current configured table, or creates a table to configured as requested
-    Input:
+    Description: Creates a new DynamodbManager object.  Inputs are variables to your AWS account.
+                 If access_key_id and secret_access_key are provided they are used.
+                 If not provided, it falls back to ENV variables, then secret credential storage (profile name).
+                 All arguments are keyword arguments
+    Input:  region            => String
+            table_name        => String
+            access_key_id     => String
+            secret_access_key => String
+            profile_name      => 'default'
     Output: Aws::DynamoDB::Client
 
     #new => Object
