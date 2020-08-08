@@ -163,6 +163,19 @@ Viewing all my neighbours
 
     Geohash.neighbours(hash) => Array[Geohash]
 
+Viewing one of my neighbours
+
+    Description: Takes in a Geohash and shows the neighbour in the cardinal direction
+                 NORTH = 0
+                 EAST  = 1
+                 SOUTH = 2
+                 WEST  = 3
+    Input:  Geohash   => String
+            Direction => Integer
+    Output: Geohash
+
+    Geohash.neighbour(hash) => Geohash
+
 Get width and height about a specific precision
 
     Description: Takes in a precision value, returns the height and width of the box
