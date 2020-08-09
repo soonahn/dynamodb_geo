@@ -69,7 +69,7 @@ class DynamodbManager
     neighbours.each do |neighbour|
       resp = query(neighbour)
       resp.items.each do |item|
-        all_stores << Store.new(item['geoJson'], item['geohash'])
+        all_stores << Store.new(item['geoJson'])
       end
       break if all_stores.length >= max_item_return
     end
