@@ -4,7 +4,7 @@ require 'store'
 
 class DynamodbManager
   attr_accessor :client, :table_name, :hash_key, :range_key, :geohash_key, :geojson, :geohash_index, :hash_key_length, :local_area_size, :max_item_return
-  def initialize(region:, table_name:, access_key_id: nil, secret_access_key: nil, profile_name: 'default')
+  def initialize(region:, table_name:, access_key_id: nil, secret_access_key: nil, profile_name: 'default', endpoint: nil)
     if access_key_id.nil? && secret_access_key.nil?
       access_key_id = ENV['AWS_ACCESS_KEY_ID']
       secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
@@ -23,10 +23,18 @@ class DynamodbManager
     @local_area_size = 5
     @max_item_return = 10
 
-    @client = Aws::DynamoDB::Client.new(
-      region:      region,
-      credentials: credentials,
-    )
+    if endpoint
+      @client = Aws::DynamoDB::Client.new(
+        region:      region,
+        credentials: credentials,
+        endpoint:    endpoint
+      )
+    else
+      @client = Aws::DynamoDB::Client.new(
+        region:      region,
+        credentials: credentials,
+      )
+    end
   end
 
   def table
