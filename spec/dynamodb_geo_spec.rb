@@ -11,7 +11,7 @@ describe DynamodbGeo do
       )
       expect(dynamo).to be_a DynamodbManager
 
-      debugger;1
+      dynamo.get_stores(37.746825, -122.413637)
       puts 'foo'
     end
   end

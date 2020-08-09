@@ -69,7 +69,28 @@ class DynamodbManager
     neighbours.each do |neighbour|
       resp = query(neighbour)
       resp.items.each do |item|
-        all_stores << Store.new(item['geoJson'])
+        latitude  = item[@geojson]['latitude']
+        longitude = item[@geojson]['longitude']
+        address   = item[@geojson]['address']
+        city      = item[@geojson]['city']
+        state     = item[@geojson]['state']
+        zip       = item[@geojson]['zip']
+        area_code = item[@geojson]['area_code']
+        phone     = item[@geojson]['phone']
+        name      = item[@geojson]['name']
+        geohash   = item[@geohash_key]
+        all_stores << Store.new(
+          latitude: latitude,
+          longitude: longitude,
+          address: address,
+          city: city,
+          state: state,
+          zip: zip,
+          area_code: area_code,
+          phone: phone,
+          name: name,
+          geohash: geohash
+        )
       end
       break if all_stores.length >= max_item_return
     end
