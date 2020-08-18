@@ -56,7 +56,7 @@ class DynamodbManager
       phone:     store.phone,
       name:      store.name,
     }
-    put_point(hash, json)
+    put_point(hash, json, store.uuid)
   end
 
   def get_stores(lat, long)
@@ -118,8 +118,8 @@ class DynamodbManager
     })
   end
 
-  def put_point(hash, json)
-    uuid = SecureRandom.uuid
+  def put_point(hash, json, uuid = nil)
+    uuid ||= SecureRandom.uuid
 
     @client.put_item({
       table_name: @table_name,
