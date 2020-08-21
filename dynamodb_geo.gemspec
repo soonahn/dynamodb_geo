@@ -3,6 +3,7 @@ require 'dynamodb_geo/version'
 
 Gem::Specification.new do |s|
   s.name             = 'dynamodb_geo'
+  s.homepage         = 'https://github.com/JA-Soonahn/dynamodb_geo'
   s.version          = "#{DynamodbGeo::Version::STRING}"
   s.date             = '2020-08-04'
   s.description      = 'A port of dynamodb_geo to Ruby. Includes a geohash module.'
@@ -15,9 +16,9 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [ "README.md" ]
   s.platform         = Gem::Platform::RUBY
   s.extensions << 'ext/geohash_wrapper/extconf.rb'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'byebug'
-  s.add_development_dependency 'rake-compiler'
+  s.add_development_dependency 'rspec', '~> 3.9'
+  s.add_development_dependency 'byebug', '~> 11.1'
+  s.add_development_dependency 'rake-compiler', '~> 1.1'
   s.add_runtime_dependency 'aws-sdk-dynamodb', '~> 1'
   s.add_runtime_dependency 'aws-sdk-dynamodbstreams', '~> 1'
   s.metadata = {
