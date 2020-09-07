@@ -11,7 +11,7 @@ class DynamodbManager
 
       credentials = Aws::SharedCredentials.new(profile_name: profile_name).credentials if access_key_id.nil? && secret_access_key.nil?
     end
-    credentials = Aws::Credentials.new(access_key_id, secret_access_key)
+    credentials = Aws::Credentials.new(access_key_id, secret_access_key, ENV['AWS_SESSION_TOKEN'])
 
     @table_name      = table_name
     @hash_key        = 'hashkey'
