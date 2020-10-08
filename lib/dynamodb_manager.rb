@@ -79,6 +79,7 @@ class DynamodbManager
         phone     = item[@geojson]['phone']
         name      = item[@geojson]['name']
         geohash   = item[@geohash_key]
+        uuid      = item[@range_key]
         all_stores << Store.new(
           latitude: latitude,
           longitude: longitude,
@@ -89,7 +90,8 @@ class DynamodbManager
           area_code: area_code,
           phone: phone,
           name: name,
-          geohash: geohash
+          geohash: geohash,
+          uuid: uuid
         )
       end
       break if all_stores.length >= max_item_return
