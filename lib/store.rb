@@ -13,4 +13,13 @@ class Store
     @geohash   = store_data[:geohash] || Geohash.encode(lat, long, 10)
     @uuid      = store_data[:uuid]
   end
+
+  def to_h
+    temp = instance_variables.map do |v|
+      value = self.send(v.to_s.sub('@',''))
+      value = value.class == BigDecimal ? value.to_f : value
+      Hash[v.to_s.sub('@','').to_sym, value]
+    end
+    Hash[*temp.collect{|h| h.to_a}.flatten]
+  end
 end
